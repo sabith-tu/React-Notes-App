@@ -9,10 +9,19 @@ export function BodyLeftPanel() {
   let [cardsToShow, setCardsToShow] = useState([]);
 
   useEffect(() => {
-    document.addEventListener(Event_Name_CardListChange, (e) => {
-      console.log(e.detail.cardList);
+    const handleCardListChange = (e) => {
+      console.log("New card list:", e.detail.cardList);
       setCardsToShow(e.detail.cardList);
-    });
+    };
+
+    document.addEventListener(Event_Name_CardListChange, handleCardListChange);
+
+    return () => {
+      document.removeEventListener(
+        Event_Name_CardListChange,
+        handleCardListChange
+      );
+    };
   }, []);
 
   console.log("Rerunning");

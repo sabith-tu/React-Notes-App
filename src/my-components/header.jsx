@@ -4,6 +4,7 @@ import { data } from "./data";
 
 export function Header() {
   const [text, setText] = useState("");
+  const [cards, setCards] = useState(data);
   return (
     <div className="w-full h-16 pt-2 pb-2">
       <div className="rounded-xl h-full w-full bg-c-2 flex">
@@ -26,14 +27,23 @@ export function Header() {
   }
 
   function OnNewCardAdded() {
-    if (text == "") {
+    if (text === "") {
       return;
     }
-    data.push({
-      name: text,
-      note: "",
-    });
-    Event_Invoke_CardListChange(data);
+    // data.push({
+    //   "name": text,
+    //   "note": "",
+    // });
+
+    /* the data list is not a state so it won't re-render any change.Also Event dispatching occurs
+     before the updation happens. Here we are calling the Event only after the state has been changed.
+     */
+    const newCard = {"name": text, "note": ""}
+    const updatedCards = [...cards, newCard]
+
+    setCards(updatedCards)
+    console.log("newData: ", updatedCards)
+    Event_Invoke_CardListChange(updatedCards);
     setText("");
   }
 }
