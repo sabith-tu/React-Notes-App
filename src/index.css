@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scroll bar styling */
+.custom-scrollbar-1 {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #03346E #021526; /* Firefox */
+}
+
+.custom-scrollbar-2 {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #03346E #021526; /* Firefox */
+}
+
+
+
+* {
+  color: white
+}
+
+.bg-c-1 {
+  background-color: #021526;
+}
+
+.bg-c-2 {
+  background-color: #3e5e76;
+}
+
+.bg-c-3 {
+  background-color: #03346E;
+}
+
+.accent-c {
+  background-color: #E2E2B6;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
