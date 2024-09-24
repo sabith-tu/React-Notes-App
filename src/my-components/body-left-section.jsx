@@ -3,6 +3,7 @@ import { DataCard } from "./data-card";
 import {
   Event_Invoke_NewCardSelected,
   Event_Name_CardListChange,
+  Event_Name_OnLoad,
 } from "./event-system";
 
 export function BodyLeftPanel() {
@@ -10,9 +11,10 @@ export function BodyLeftPanel() {
 
   useEffect(() => {
     document.addEventListener(Event_Name_CardListChange, (e) => {
-      console.log("Event Call");
-      console.log(e.detail.cardList);
       setCardsToShow([...e.detail.cardList]);
+    });
+    document.addEventListener(Event_Name_OnLoad, (e) => {
+      setCardsToShow([...e.detail.data]);
     });
   }, []);
 

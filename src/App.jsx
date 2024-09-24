@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./index.css";
@@ -6,10 +6,12 @@ import { BodyLeftPanel } from "./my-components/body-left-section";
 import { BodyRightSection } from "./my-components/body-right-section";
 import { Header } from "./my-components/header";
 import { Footer } from "./my-components/footer";
+import { LoadData } from "./my-components/data";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  useEffect(() => {
+    LoadData();
+  }, []);
   return (
     <>
       <div className="h-lvh p-5 flex flex-col bg-c-1">

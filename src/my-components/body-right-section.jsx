@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {CardNoteChange, data, SaveData} from './data'
 import {
   Event_Name_NewCardSelected,
   Event_Invoke_CardDataChange,
@@ -32,7 +33,6 @@ export function BodyRightSection() {
 
   function HandleTextAreaOnChange(event) {
     const newText = event.target.value;
-    //setCardData(newText);
-    Event_Invoke_CardDataChange(cardName, newText);
+    CardNoteChange(cardName, newText);
   }
 }

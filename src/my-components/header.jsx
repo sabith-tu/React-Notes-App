@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Event_Invoke_AddNewCard, Event_Invoke_CardListChange } from "./event-system";
-import { data } from "./data";
+import {
+  Event_Invoke_AddNewCard,
+  Event_Invoke_CardListChange,
+} from "./event-system";
+import { AddNewCard, data, SaveData } from "./data";
 
 export function Header() {
   const [text, setText] = useState("");
@@ -15,7 +18,9 @@ export function Header() {
         />
         <button
           className="w-10 h-10 mt-auto mb-auto flex-center ml-3 mr-3"
-          onClick={OnNewCardAdded}> +
+          onClick={OnNewCardAdded}>
+          {" "}
+          +
         </button>
       </div>
     </div>
@@ -29,11 +34,7 @@ export function Header() {
     if (text == "") {
       return;
     }
-    data.push({
-      name: text,
-      note: "",
-    });
-    Event_Invoke_CardListChange(data);
+    AddNewCard(text, "");
     setText("");
   }
 }
