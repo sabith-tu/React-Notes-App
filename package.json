@@ -13,6 +13,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tiptap/extension-bold": "^2.7.4",
+    "@tiptap/extension-heading": "^2.7.4",
+    "@tiptap/extension-italic": "^2.7.4",
+    "@tiptap/react": "^2.7.4",
+    "@tiptap/starter-kit": "^2.7.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

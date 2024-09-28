@@ -5,6 +5,7 @@ import {
   Event_Invoke_CardDataChange,
   Event_Name_CardDataChange,
 } from "./event-system";
+import TipTapEditor from "./TIpTapEditor";
 
 export function BodyRightSection() {
   const [cardData, setCardData] = useState("");
@@ -20,19 +21,20 @@ export function BodyRightSection() {
     });
   }, []);
   {
-    if (cardName != "")
+    if (cardName.trim() != "")
       return (
-        <textarea
-          onChange={HandleTextAreaOnChange}
-          value={cardData}
-          className="bg-c-1 w-full h-full overflow-auto p-5 custom-scrollbar-1 focus:outline-none focus:border-transparent resize-none "
-        />
+        // <textarea
+        //   onChange={HandleTextAreaOnChange}
+        //   value={cardData}
+        //   className="bg-c-1 w-full h-full overflow-auto p-5 custom-scrollbar-1 focus:outline-none focus:border-transparent resize-none "
+        // />
+        <TipTapEditor cardData={cardData} handleCardDataChange={HandleTextAreaOnChange}/>
       );
     else return <div className="flex-center w-full h-full"> Select Card </div>;
   }
 
   function HandleTextAreaOnChange(event) {
-    const newText = event.target.value;
-    CardNoteChange(cardName, newText);
+    // const newText = event.target.value;
+    CardNoteChange(cardName, event);
   }
 }

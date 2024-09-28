@@ -31,7 +31,7 @@ export function Header() {
   }
 
   function OnNewCardAdded() {
-    if (text == "") {
+    if (text.trim() == "") {
       return;
     }
     AddNewCard(text, "");
